@@ -12,19 +12,8 @@
         <p> {{ entry.date_added|date: 'M d, Y H:i' }} </p>
         <p> {{ entry.text|linebreaks }}</p>
     </li>
-
-<p>Topics</p>
-
-<ul>
-    {% for topic in topics %}
-
-    <li>{{ topic.text }}</li>
-
-    {% empty %}
-
-    <li>No topics have been added yet.</li>
-
-    {% endfor %}
+{% empty %}
+    <li>There are no entries for this topic yet</li>
+{% endfor %}
 </ul>
-
 {% endblock content %}
