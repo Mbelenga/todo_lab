@@ -27,3 +27,10 @@ def new_topic(request):
     else:
         # POST data submitted; process data.
         form = TopicForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('learning_logs:topics')
+    
+    # Display a blank or invalid form
+    context = {'form': form}
+    return render(request, 'learning_logs/new_topic.html', context)
