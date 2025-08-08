@@ -1,6 +1,7 @@
 from django import forms
 
 from .models import Topic, Entry
+from django.forms import ModelForm
 
 class TopicForm(forms.ModelForm):
     class Meta:
@@ -8,7 +9,7 @@ class TopicForm(forms.ModelForm):
         fields = ['text']
         labels = {'text': ''}
 
-class EntryForm(forms, ModelForm):
+class EntryForm(forms.ModelForm):
     class Meta:
         model = Entry
         fields = ['text']
